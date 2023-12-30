@@ -1,0 +1,3 @@
+[submodule "src/lib/whiskerweb"]
+	path = src/lib/whiskerweb
+	url = https://github.com/Slynchy/whiskerweb.git
