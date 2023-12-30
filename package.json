@@ -1,0 +1,33 @@
+{
+  "name": "whiskerweb-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --config webpack.dev.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.6.0",
+    "pixi.js": "^8.0.0-rc",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "@capacitor-community/admob": "^5.3.1",
+    "@capacitor/app": "^5.0.6",
+    "@capacitor/screen-orientation": "^5.0.6",
+    "@pixi/sound": "^5.2.2",
+    "@tweenjs/tween.js": "^21.0.0",
+    "curve-interpolator": "^3.3.1",
+    "firebase": "^10.7.1",
+    "gameanalytics": "^4.4.7",
+    "is-mobile": "^4.0.0",
+    "stats.js": "^0.17.0"
+  }
+}
