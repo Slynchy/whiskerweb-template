@@ -1,0 +1,1 @@
+export type TSlotIds = "slot_0" | "slot_1" | "slot_2" | "slot_3";
