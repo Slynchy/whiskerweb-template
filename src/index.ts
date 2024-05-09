@@ -1,6 +1,5 @@
-import {Engine, LoaderType} from "./lib/whiskerweb";
+import {Engine, LoaderType} from "whiskerweb";
 import {TestState} from "./TestState";
-import {Application, autoDetectRenderer, Container, Graphics} from "pixi.js";
 
 async function main() {
     console.log("Test");
@@ -9,7 +8,7 @@ async function main() {
     await engine.init(
         new TestState(),
         {
-            renderType: "webgl",
+            renderType: "webgpu",
             adjustHeightForBannerAd: false,
             antialias: true,
             autoInitAnalytics: false,
@@ -19,6 +18,7 @@ async function main() {
             autoStart: false,
             backgroundAlpha: 1,
             backgroundColor: 0x080808,
+            playerDataKeys: ["testKey1"],
             bootAssets: [
                 {
                     key: "whiskerweb",
@@ -45,24 +45,4 @@ async function main() {
     );
 }
 
-async function main2() {
-    const renderer = await autoDetectRenderer({
-        preference: "webgpu",
-    })
-    document.body.appendChild(renderer.canvas);
-
-    const container = new Container();
-    // renderer.stage.addChild(container);
-
-    const bg =
-        new Graphics()
-            .fill(0xfafafa)
-            .rect(0, 0, 256, 256)
-            .fill(0xfafafa);
-    container.addChild(bg);
-
-    renderer.render(container);
-}
-
 main();
-// main2();
