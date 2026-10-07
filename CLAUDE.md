@@ -13,6 +13,14 @@ Starter project for **Whiskerweb**, a TypeScript entity-component framework buil
 - tsconfig `paths` maps `whiskerweb` to `./lib/whiskerweb/src`, so the app compiles the framework source directly (no framework build step). Framework dependencies live in `lib/whiskerweb/node_modules`; `pixi.js` is in the root `node_modules`.
 - Import PIXI classes (Sprite, Container, Graphics, Text, Texture, Filters...) from `"whiskerweb"` rather than `pixi.js`.
 
+## Framework exports (barrels)
+
+- Every folder under `lib/whiskerweb/src/` has an `index.ts` barrel re-exporting its files (and its subfolders' barrels). The library root `lib/whiskerweb/src/index.ts` is assembled from them: `engine`, `config` and `lib` are exported flat; `Constants`, `Helpers` (the `engine/HelperFunctions/` folder), `FullscreenFunctions` and `Filters` (pixi-filters) are namespaces; `buttonify`, `uid`, `TWEENFunctions` and `TWEENDirection` are also exported flat for backwards compatibility.
+- When adding a file, add an `export * from "./NewFile";` line to its folder's `index.ts` (use `export { default as X }` for default exports, as `engine/index.ts` does for `InputManager`).
+- Inside the framework, import from the specific file (`../Systems/System`), never from a barrel or the root index. Barrels importing modules that import barrels creates circular imports, which fail at load time with errors like "Class extends value undefined".
+- `./HelperFunctions` resolves to the `HelperFunctions.ts` static class, not the folder; the folder's barrel must be referenced as `./HelperFunctions/index`.
+- `engine/Loader.ts` is an empty file and is deliberately left out of the barrels (the real loader base class is `engine/Loaders/Loader.ts`).
+
 ## Boot sequence (`Engine.init`)
 
 - `Engine` is a singleton, also exposed as the global `ENGINE`; a second `new Engine()` throws.
