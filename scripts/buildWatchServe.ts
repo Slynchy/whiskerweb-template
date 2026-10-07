@@ -1,4 +1,3 @@
-import { join } from 'path';
 import { context } from 'esbuild';
 import { copy } from "esbuild-plugin-copy";
 
@@ -27,6 +26,10 @@ async function main(): Promise<void> {
   });
 
   await esbuildContext.watch();
+  const { hosts, port } = await esbuildContext.serve({
+    servedir: "dist",
+    port: 8080,
+  });
 }
 
 void main().catch(e => {
