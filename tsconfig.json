@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "paths": {
+      "whiskerweb": ["./lib/whiskerweb/src"],
+      "whiskerweb/*": ["./lib/whiskerweb/src/*"],
+    },
     "outDir": "./dist/",
     "sourceMap": true,
     "strict": false,
