@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node scripts/buildWatchServe.ts",
+    "start": "ts-node scripts/server.ts",
     "build": "ts-node scripts/build.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
