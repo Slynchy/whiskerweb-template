@@ -9,6 +9,9 @@ async function main(): Promise<void> {
     platform: 'browser',
     minify: false,
     logLevel: 'info',
+    // The framework (and pixi-filters/@pixi/sound under it) would otherwise resolve
+    // lib/whiskerweb/node_modules/pixi.js, bundling a second, older copy of PIXI
+    alias: { 'pixi.js': './node_modules/pixi.js' },
     plugins: [
       copy({
         assets: [
@@ -33,5 +36,6 @@ async function main(): Promise<void> {
 }
 
 void main().catch(e => {
+  console.error('Failed to start dev server:', e);
   process.exit(1);
 });
