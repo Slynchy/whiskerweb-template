@@ -3,14 +3,24 @@
     "paths": {
       "whiskerweb": ["./lib/whiskerweb/src"],
       "whiskerweb/*": ["./lib/whiskerweb/src/*"],
+      // Type-check the framework against the same PIXI copy the build aliases to
+      "pixi.js": ["./node_modules/pixi.js"],
     },
     "outDir": "./dist/",
     "sourceMap": true,
     "strict": false,
     "noImplicitReturns": false,
     "moduleResolution": "node",
+    "module": "es2020",
     "target": "es6",
+    "skipLibCheck": true,
     "jsx": "react"
+  },
+  // The build scripts run under ts-node, which needs CommonJS
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
   },
   "include": ["src/**/*"]
 }
