@@ -4,25 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --config webpack.dev.config.js",
-    "build": "webpack --config webpack.prod.config.js",
+    "start": "ts-node scripts/server.ts",
+    "build": "ts-node scripts/build.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "copy-webpack-plugin": "^11.0.0",
-    "html-webpack-plugin": "^5.6.0",
-    "terser-webpack-plugin": "^5.3.10",
+    "esbuild": "^0.28.2",
+    "esbuild-plugin-copy": "^2.1.1",
+    "pixi.js": "^8.22.0",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.3.3",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "typescript": "^5.3.3"
   },
-  "dependencies": {
-    "audio-loader": "^1.0.3",
-    "web-audio-scheduler": "^1.4.0"
-  }
+  "workspaces": [
+    "lib/*"
+  ]
 }
